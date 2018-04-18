@@ -1,0 +1,20 @@
+.qrcode {
+  width: 200px;
+}
+
+.title {
+  display: none;
+}
+
+.info {
+  width: 200px;
+}
+
+.status_icon {
+  display: none;
+}
+
+.status {
+  text-align: center;
+}
+
