@@ -6,7 +6,7 @@ export default [
         component: Dashboard,
         children: [
             {
-                path: '/test',
+                path: '/',
                 name: 'home',
                 component: require('./pages/Home.vue'),
             },

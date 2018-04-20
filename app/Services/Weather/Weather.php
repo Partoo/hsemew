@@ -5,7 +5,7 @@ namespace App\Services\Weather;
 use Cache;
 use GuzzleHttp\Client;
 
-class WeatherClient
+class Weather
 {
     public static function get()
     {

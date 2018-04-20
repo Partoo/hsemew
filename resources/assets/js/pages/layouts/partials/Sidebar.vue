@@ -49,7 +49,7 @@
                     <div class="weather">
                         <p v-if="weatherLoaded" class="weather fadeInUp">
                             <a href="" class="btn btn-transparent" style="color: #ccc;">
-                                {{weather.date}} {{weather.week}} {{weather.weather}}
+                                <!--{{weather.date}} {{weather.week}} {{weather.weather}}-->
                             </a>
                         </p>
                     </div>

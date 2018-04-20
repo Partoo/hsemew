@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Wemesh-维脉事</title>
-    <link href={{asset('css/app.css')}} rel="stylesheet">
+    <link href={{mix('css/app.css')}} rel="stylesheet">
 </head>
 <body>
 <div id="app">
-    {{\Auth::user()}}
+    <app></app>
 </div>
-{{--<script src={{asset('js/app.js')}}></script>--}}
+<script src={{mix('js/app.js')}}></script>
 </body>
 </html>

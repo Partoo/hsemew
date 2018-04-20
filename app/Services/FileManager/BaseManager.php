@@ -134,7 +134,7 @@ class BaseManager
             $type = $result[2];//得到图片类型png?jpg?gif?
             $new_file = "{$path}{$hashName}.{$type}";
             $this->disk->put($new_file, base64_decode(str_replace($result[1], '', $img_content)));
-            return $new_file;
+            return $this->disk->getUrl($new_file);
         }
     }
 

@@ -43,7 +43,7 @@
             }
         },
         mounted() {
-            this.$http.post('/home/me')
+            this.$http.get('me')
                 .then((response) => {
                     this.$store.dispatch('storeMe', response.data.data)
                 })

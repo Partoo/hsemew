@@ -15,8 +15,9 @@ Vue.use(VueRouter);
 
 
 Vue.component('logo', require('./components/Logo.vue'));
-Vue.component('register', require('./pages/Auth/register.vue'));
+Vue.component('register', require('./pages/Auth/Register.vue'));
 Vue.component('reset', require('./pages/Auth/Reset.vue'));
+Vue.component('app', require('./App.vue'));
 
 
 const router = new VueRouter({
