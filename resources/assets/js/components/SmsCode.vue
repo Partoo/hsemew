@@ -1,10 +1,12 @@
 <template>
-    <button href="#" id="btn" class="button" :disabled="disabled" @click.prevent.stop="getAuthcode($event)">获取验证码
+    <button type="success" href="#" class="el-button el-button--success" id="btn" :class="{'is-disabled':disabled}"
+            @click.prevent.stop="getAuthcode($event)" :disabled="disabled">获取验证码
     </button>
 </template>
 <script>
     import {countdown} from '../plugins/helper'
     import captcha from '../components/lib/captcha'
+    import {MessageBox, Button} from 'element-ui'
 
     export default {
         props: {
@@ -27,7 +29,8 @@
         },
         data() {
             return {
-                captcha: Object
+                captcha: Object,
+                submitType: 'register',
             }
         },
         methods: {
@@ -56,15 +59,29 @@
                     params: {
                         mobile: this.mobile,
                         content: 'auth',
-                        type: this.type
+                        type: this.submitType
                     }
                 })
                     .then((response) => {
                         countdown(document.getElementById('btn'), this.duration, '后重发');
-                        this.$message({
+                        console.log(document.getElementById('btn'));
+                        MessageBox({
+                            title: '操作成功',
                             message: response.data,
                             type: 'success'
                         })
+                    })
+                    .catch((error) => {
+                        if (error.response.status === 406) {
+                            MessageBox.confirm(error.response.data.errors, '提示', {
+                                confirmButtonText: '强制绑定该手机',
+                                cancelButtonText: '取消操作',
+                                type: 'warning'
+                            }).then(() => {
+                                this.submitType = 'rebind';
+                                this.sendSms()
+                            })
+                        }
                     })
             },
             initCaptcha() {
@@ -97,7 +114,10 @@
                                         if (response.data.success) {
                                             return this.sendSms()
                                         }
-                                        return this.$alert('请完成验证')
+                                        // Notification({
+                                        //     message: '验证码已发送，请留意查收',
+                                        //     type: 'warning'
+                                        // })
                                     })
                             }).onError(() => {
                                 console.log('failed')
@@ -109,6 +129,10 @@
         },
         created() {
             this.initCaptcha()
+        },
+        components: {
+            Notification,
+            'el-button': Button
         }
     }
 </script>

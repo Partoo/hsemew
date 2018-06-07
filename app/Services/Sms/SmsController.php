@@ -34,13 +34,13 @@ class SmsController extends Controller
         $mobile = $request->input('mobile');
         if ($type === 'register') {
             if (User::where('mobile', '=', $mobile)->exists()) {
-                return response()->json(['errors' => '手机号码已注册，请直接登录'], 422);
+                return response()->json(['errors' => '该手机号码已被其它微信号绑定，建议您使用原微信号扫描登录。'], 406);
             }
         } else {
             if (!User::where('mobile', '=', $mobile)->exists()) {
                 return response()->json(['errors' => '手机号码不存在，无法使用该功能'], 422);
             }
         }
-        return (new SmsClient)->to($mobile)->content('auth')->send();
+//        return (new SmsClient)->to($mobile)->content('auth')->send();
     }
 }

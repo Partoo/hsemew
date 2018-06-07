@@ -7,7 +7,6 @@
     <meta name="description" content="维脉事 - 企事业单位微信一体化系统">
     <meta name="keywords" content="wemesh,维脉事,微信一体化">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Wemesh-维脉事</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 

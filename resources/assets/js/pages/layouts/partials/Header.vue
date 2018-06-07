@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <button href="#" class="sidebar-mobile-toggler pull-left btn hidden-md hidden-lg"
                     @click="switchSidebar">
-                <i class="fa fa-bars"></i>
+                <i class="iconfont icon-fullscreen" style="font-size: 20px"></i>
             </button>
             <a class="navbar-brand" href="/"> <img
                     src="/img/logo_inverse.png"
@@ -11,45 +11,49 @@
             <!--<a class="navbar-brand navbar-brand-collapsed" href="/"> <img-->
             <!--src="/img/logo_inverse.png"-->
             <!--alt="wemesh"> </a>-->
-            <span class="version">版本:1.0</span>
+            <span class="version hidden-sm">版本:1.0</span>
         </div>
         <div class="navbar-collapse collapse  hidden-sm">
             <ul class="nav navbar-left">
-                <ticker :lists="news" icon_class="fa fa-podcast"></ticker>
+                <ticker :lists="news" icon_class="iconfont icon-headlines"></ticker>
             </ul>
             <ul class="nav navbar-right">
-                <li class="dropdown">
-                    <el-dropdown>
-                        <a href="" class="dropdown-toggle btn-transparent">
-                            <span class="badge">3</span>
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <el-dropdown-menu slot="dropdown" style="margin-top: -10px">
-                            <el-dropdown-item>黄金糕</el-dropdown-item>
-                            <el-dropdown-item>狮子头</el-dropdown-item>
-                            <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                            <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                            <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
+                <li>
+                    <i class="iconfont icon-feedback"></i> <a href="">帮助文档</a>
                 </li>
-                <li class="dropdown">
-                    <el-dropdown>
-                        <a href="" class="dropdown-toggle btn-transparent">
-                            <span class="badge">...</span>
-                            <i class="fas fa-bell"></i>
-                        </a>
-                        <el-dropdown-menu slot="dropdown" style="margin-top: -10px">
-                            <el-dropdown-item>黄金糕</el-dropdown-item>
-                            <el-dropdown-item>狮子头</el-dropdown-item>
-                            <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                            <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                            <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                </li>
+                <!--<li class="dropdown">-->
+                <!--<el-dropdown>-->
+                <!--<span class="dropdown-toggle btn-transparent">-->
+                <!--<span class="badge">3</span>-->
+                <!--<i class="iconfont icon-eit"></i>-->
+                <!--</span>-->
+                <!--<el-dropdown-menu slot="dropdown" style="margin-top: -10px">-->
+                <!--<el-dropdown-item>黄金糕</el-dropdown-item>-->
+                <!--<el-dropdown-item>狮子头</el-dropdown-item>-->
+                <!--<el-dropdown-item>螺蛳粉</el-dropdown-item>-->
+                <!--<el-dropdown-item disabled>双皮奶</el-dropdown-item>-->
+                <!--<el-dropdown-item divided>蚵仔煎</el-dropdown-item>-->
+                <!--</el-dropdown-menu>-->
+                <!--</el-dropdown>-->
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--<el-dropdown>-->
+                <!--<span class="dropdown-toggle btn-transparent">-->
+                <!--<span class="badge">...</span>-->
+                <!--<i class="iconfont icon-message"></i>-->
+                <!--</span>-->
+                <!--<el-dropdown-menu slot="dropdown" style="margin-top: -10px">-->
+                <!--<el-dropdown-item>黄金糕</el-dropdown-item>-->
+                <!--<el-dropdown-item>狮子头</el-dropdown-item>-->
+                <!--<el-dropdown-item>螺蛳粉</el-dropdown-item>-->
+                <!--<el-dropdown-item disabled>双皮奶</el-dropdown-item>-->
+                <!--<el-dropdown-item divided>蚵仔煎</el-dropdown-item>-->
+                <!--</el-dropdown-menu>-->
+                <!--</el-dropdown>-->
+                <!--</li>-->
+
             </ul>
-            <button class="settings btn-transparent"></button>
+            <!--<button class="settings btn-transparent"></button>-->
         </div>
     </div>
 </template>
@@ -57,12 +61,12 @@
 <script>
     import {mapActions} from 'vuex'
     import Ticker from '../../../components/NewsTicker';
-    import fa from '@fortawesome/fontawesome'
-    import {faEnvelope, faBell, faPodcast} from '@fortawesome/fontawesome-free-solid'
+    // import fa from '@fortawesome/fontawesome'
+    // import {faEnvelope, faBell, faPodcast} from '@fortawesome/fontawesome-free-solid'
 
-    fa.library.add(faEnvelope);
-    fa.library.add(faBell);
-    fa.library.add(faPodcast);
+    // fa.library.add(faEnvelope);
+    // fa.library.add(faBell);
+    // fa.library.add(faPodcast);
 
 
     export default {
@@ -168,53 +172,52 @@
         }
         .navbar-right {
             margin-right: 20px;
-            .dropdown-toggle {
-                /*color: #737373 !important;*/
-                font-weight: 600;
-                letter-spacing: 0;
-                line-height: 60px;
-                padding: 0 15px;
-                position: relative;
-                text-align: center;
-                display: block;
-                i {
-                    font-size: 18px;
-                }
-            }
-            .badge {
-                background-color: #e85a5a;
-                color: #ffffff;
-                padding: 0;
-                position: absolute;
-                top: 10px;
-                right: -15px;
-                font-size: 12px;
-                left: auto;
-                transform: translateX(-50%);
-                height: 20px;
-                min-width: 20px;
-                line-height: 20px;
-            }
+            /*.dropdown-toggle {*/
+            /*font-weight: 600;*/
+            /*letter-spacing: 0;*/
+            /*line-height: 60px;*/
+            /*padding: 0 15px;*/
+            /*position: relative;*/
+            /*text-align: center;*/
+            /*display: block;*/
+            /*i {*/
+            /*font-size: 18px;*/
+            /*}*/
+            /*}*/
+            /*.badge {*/
+            /*background-color: #e85a5a;*/
+            /*color: #ffffff;*/
+            /*padding: 0;*/
+            /*position: absolute;*/
+            /*top: 10px;*/
+            /*right: -15px;*/
+            /*font-size: 12px;*/
+            /*left: auto;*/
+            /*transform: translateX(-50%);*/
+            /*height: 20px;*/
+            /*min-width: 20px;*/
+            /*line-height: 20px;*/
+            /*}*/
 
         }
 
-        .settings {
-            position: fixed;
-            top: -1px;
-            right: 0;
-            width: 30px;
-            line-height: 59px;
-        }
-        .settings:after {
-            position: absolute;
-            font-size: 17px;
-            padding: 0;
-            margin: 0;
-            font-family: 'FontAwesome';
-            content: "\f085";
-            left: 5px;
-            top: 0;
-        }
+        /*.settings {*/
+        /*position: fixed;*/
+        /*top: -1px;*/
+        /*right: 0;*/
+        /*width: 30px;*/
+        /*line-height: 59px;*/
+        /*}*/
+        /*.settings:after {*/
+        /*position: absolute;*/
+        /*font-size: 17px;*/
+        /*padding: 0;*/
+        /*margin: 0;*/
+        /*font-family: 'FontAwesome';*/
+        /*content: "\f085";*/
+        /*left: 5px;*/
+        /*top: 0;*/
+        /*}*/
     }
 
     @media(min-width: 992px) {
@@ -276,17 +279,17 @@
             li {
                 float: left;
                 position: relative;
-                padding: 0 10px;
+                padding: 20px 10px;
             }
-            li:before {
-                background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, 0.2) 50%, rgba(51, 51, 51, 0) 100%);
-                content: "";
-                position: absolute;
-                width: 1px;
-                right: 0;
-                top: 5px;
-                bottom: 5px;
-            }
+            /*li:before {*/
+            /*background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(185, 185, 185, 0.8) 50%, rgba(51, 51, 51, 0) 100%);*/
+            /*content: "";*/
+            /*position: absolute;*/
+            /*width: 1px;*/
+            /*right: 0;*/
+            /*top: 5px;*/
+            /*bottom: 5px;*/
+            /*}*/
         }
     }
 

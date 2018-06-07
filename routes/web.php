@@ -14,12 +14,12 @@ Route::get('/home/{any}', 'HomeController@index')->where('any', '.*');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('wx_request');
 Route::post('api/v1/register', 'Auth\RegisterController@register');
-Route::get('reset', 'Auth\ResetController@showResetForm')->name('reset')->middleware('wx_request');
-Route::post('api/v1/reset', 'Auth\ResetController@reset');
-Route::post('api/v1/captcha/verify', 'Auth\ResetController@verify');
 
 Route::get('api/v1/captcha/get', function () {
     return Geetest::init();
+});
+Route::post('api/v1/captcha/verify', function () {
+    return Geetest::verify();
 });
 
 //微信网页授权
@@ -34,3 +34,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'api/v1/'], function () {
     });
     Route::get('me', 'MeController@profile');
 });
+
+
+Route::get('test', 'PluginController@index');

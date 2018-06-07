@@ -1,14 +1,15 @@
 <template>
-    <div class="row mt-30">
-        <div class="col-md-3 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="columns three">
             <ul class="great-tab-list">
                 <li v-for="(item, index) in items" :class="{active:index===currentIndex}">
-                    <a href="#" @click.prevent="changeTab(index)"> <i :class="item.icon"></i>
-                        <br> {{item.title}} </a>
+                    <a href="#" @click.prevent="changeTab(index)">
+                        <!--<i :class="item.icon"></i>-->
+                        {{item.title}} </a>
                 </li>
             </ul>
         </div>
-        <div class="col-md-9 col-sm-12 col-xs-12">
+        <div class="columns nine">
             <div class="great-tab-box">
                 <div class="tab-panel">
                     <div class="tab-content">
@@ -20,15 +21,14 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
 <script>
-    import fa from '@fortawesome/fontawesome'
-    import {faWeixin} from '@fortawesome/fontawesome-free-brands'
+    // import fa from '@fortawesome/fontawesome'
+    // import {faWeixin} from '@fortawesome/fontawesome-free-brands'
 
-    fa.library.add(faWeixin);
+    // fa.library.add(faWeixin);
     export default {
         data() {
             return {
@@ -135,7 +135,7 @@
         height: 30px;
         width: 30px;
         right: -8px;
-        bottom: 50px;
+        bottom: 35px;
         background-color: #2ABFC3;
         transform: rotate(45deg);
         margin-bottom: -8px;

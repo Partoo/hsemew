@@ -32,12 +32,12 @@ class RegisterController extends Controller
         $messages = [
             'mobile.required' => '请输入手机号码',
             'authcode.require' => '手机验证码需要填写',
-            'password.min' => '密码请不要少于6个字符'
+//            'password.min' => '密码请不要少于6个字符'
         ];
         $validator = Validator::make($request->all(), [
             'mobile' => 'required|string|max:12',
             'authcode' => 'required|string',
-            'password' => 'required|string|confirmed|min:6',
+//            'password' => 'required|string|confirmed|min:6',
         ], $messages);
 
         $cache = Cache::get($request->input('mobile'));
@@ -55,11 +55,11 @@ class RegisterController extends Controller
         $mobile = $request->input('mobile');
 
         // 提示一下
-        if ($this->user->exist('mobile', $mobile) && $request->input('submitType') === 'register') {
-            return response()->json([
-                'errors' => '该手机号码已被绑定，您可以使用原微信号扫描登录。如果执意绑定到当前微信号，之前的绑定将失效。'
-            ], 406);
-        }
+//        if ($this->user->exist('mobile', $mobile) && $request->input('submitType') === 'register') {
+//            return response()->json([
+//                'errors' => '该手机号码已被其它微信号绑定，建议您使用原微信号扫描登录。'
+//            ], 406);
+//        }
 
         if ($this->user->exist('mobile', $mobile) && $request->input('submitType') === 'rebind') {
             $user = $this->user->where('mobile', '=', $mobile)->first();
@@ -74,7 +74,7 @@ class RegisterController extends Controller
         $avatar = $this->saveAvatar($wx_request['headimgurl'], $request->input('mobile'));
         $user = $this->user->create([
             'mobile' => $request->input('mobile'),
-            'password' => bcrypt($request->input('password')),
+//            'password' => bcrypt($request->input('password')),
             'nickname' => $wx_request['nickname'],
             'gender' => $wx_request['sex'],
             'union_id' => $wx_request['unionid'],

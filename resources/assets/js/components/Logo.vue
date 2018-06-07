@@ -1,7 +1,7 @@
 <template>
     <div class="logo text-center">
         <img src="/img/logo.png">
-        <h5>基于微信的办公集成平台</h5>
+        <h6>基于微信的办公集成平台</h6>
     </div>
 </template>
 
@@ -12,10 +12,7 @@
         img {
             height: 50px;
         }
-        h5 {
-            font-weight: 500 !important;
-        }
-        h5::before {
+        h6::before {
             display: inline-block;
             margin: 0 8px 2px 0;
             height: 2px;
@@ -25,7 +22,7 @@
             width: 20%;
 
         }
-        h5::after {
+        h6::after {
             display: inline-block;
             margin: 0 0 2px 8px;
             height: 2px;

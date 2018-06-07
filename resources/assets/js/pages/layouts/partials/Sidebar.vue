@@ -8,35 +8,30 @@
                             <a v-if="profile.avatar===null" class="profile-card-photo" href="#">
                                 <img src="/img/default-avatar.jpg" alt="avatar">
                             </a>
-                            <a v-else href="#">
-                                <img :src="profile.avtar" alt="avatar">
+                            <a v-else href="#" class="profile-card-photo">
+                                <img :src="profile.avatar" alt="avatar">
                             </a>
                         </div>
                         <div class="media-body">
-                            <span v-if="profile.name === null"
-                                  class="media-heading text-white">{{profile.mobile}}</span>
-                            <span v-else class="media-heading text-white">{{profile.name}}</span>
+                            <span class="media-heading text-white">{{profile.name}}</span>
                             <div class="text-small text-white-transparent">
-                                <a href="#" style="margin: 0;" class="button small">升级为专业版</a>
+                                <a href="#" style="margin:  8px 0 0 0; font-size: 12px" class="button small">绑定公众号</a>
                             </div>
                         </div>
                         <div class="media-right media-middle">
                             <el-dropdown trigger="click">
                                 <span class="btn-transparent">
-                                    <i class="fa fa-caret-down"></i>
+                                    <i class="el-icon-arrow-down"></i>
                                 </span>
 
                                 <el-dropdown-menu slot="dropdown">
-                                    <el-dropdown-item command="profile"><a href=""><i class="fa fa-user-circle"></i>
-                                        个人资料</a>
+                                    <el-dropdown-item command="profile"><a href="">个人资料</a>
                                     </el-dropdown-item>
-                                    <el-dropdown-item command="message"><a href=""><i class="fa fa-rss"></i> 消息中心</a>
+                                    <el-dropdown-item command="message"><a href="">消息中心</a>
                                     </el-dropdown-item>
-                                    <el-dropdown-item command="security"><a href="#"><i class="fa fa-lock"></i> 安全设置</a>
+                                    <el-dropdown-item command="security"><a href="#">安全设置</a>
                                     </el-dropdown-item>
-                                    <el-dropdown-item command="logout"><a @click.prevent="onLogout"><i
-                                            class="fa fa-sign-out"></i>
-                                        退出系统</a>
+                                    <el-dropdown-item command="logout"><a href="/logout">退出系统</a>
                                     </el-dropdown-item>
                                 </el-dropdown-menu>
                             </el-dropdown>
@@ -49,45 +44,48 @@
                     <div class="weather">
                         <p v-if="weatherLoaded" class="weather fadeInUp">
                             <a href="" class="btn btn-transparent" style="color: #ccc;">
-                                <!--{{weather.date}} {{weather.week}} {{weather.weather}}-->
+                                {{weather.date}} {{weather.week}} {{weather.weather}}
                             </a>
                         </p>
                     </div>
-                    <el-menu default-active="1-4-1"
+                    <el-menu default-active="1-1"
                              @open="menuOpen"
                              background-color="#343F4D"
                              text-color="#fff"
                              @close="menuClose">
                         <el-submenu index="1">
                             <template slot="title">
-                                <i class="el-icon-location"></i>
-                                <span slot="title">导航一</span>
+                                <i class="iconfont icon-manage_fill"></i> 应用管理
                             </template>
-                            <el-menu-item-group>
-                                <span slot="title">分组一</span>
-                                <el-menu-item index="1-1">选项1</el-menu-item>
-                                <el-menu-item index="1-2">选项2</el-menu-item>
-                            </el-menu-item-group>
-                            <el-menu-item-group title="分组2">
-                                <el-menu-item index="1-3">选项3</el-menu-item>
-                            </el-menu-item-group>
-                            <el-submenu index="1-4">
-                                <span slot="title">选项4</span>
-                                <el-menu-item index="1-4-1">选项1</el-menu-item>
-                            </el-submenu>
+                            <el-menu-item index="1-1">我的应用</el-menu-item>
+                            <el-menu-item index="1-2">创建应用</el-menu-item>
                         </el-submenu>
-                        <el-menu-item index="2">
-                            <i class="el-icon-menu"></i>
-                            <span slot="title">导航二</span>
-                        </el-menu-item>
-                        <el-menu-item index="3" disabled>
-                            <i class="el-icon-document"></i>
-                            <span slot="title">导航三</span>
-                        </el-menu-item>
-                        <el-menu-item index="4">
-                            <i class="el-icon-setting"></i>
-                            <span slot="title">导航四</span>
-                        </el-menu-item>
+
+                        <el-submenu index="2">
+                            <template slot="title">
+                                <i class="iconfont icon-financial_fill"></i> 财务中心
+                            </template>
+                            <el-menu-item index="2-1">账户</el-menu-item>
+                            <el-menu-item index="2-2">优惠券</el-menu-item>
+                            <el-menu-item index="2-3">购物车</el-menu-item>
+                            <el-menu-item index="2-4">订单管理</el-menu-item>
+                        </el-submenu>
+
+                        <el-submenu index="3">
+                            <template slot="title">
+                                <i class="iconfont icon-addressbook_fill"></i> 用户中心
+                            </template>
+                            <el-menu-item index="3-1">基本资料</el-menu-item>
+                            <el-menu-item index="3-2">安全设置</el-menu-item>
+                        </el-submenu>
+
+                        <el-submenu index="4">
+                            <template slot="title">
+                                <i class="iconfont icon-customerservice_fill"></i> 客服中心
+                            </template>
+                            <el-menu-item index="4-1">我的提问</el-menu-item>
+                            <el-menu-item index="4-2">提交问题</el-menu-item>
+                        </el-submenu>
                     </el-menu>
                 </div>
             </div>
@@ -96,6 +94,8 @@
 </template>
 
 <script>
+    import {Submenu, Dropdown, MenuItem, Menu, DropdownItem, DropdownMenu} from 'element-ui'
+
     export default {
         data() {
             return {
@@ -125,12 +125,6 @@
             },
             menuClose(name, path) {
                 console.log(name, path);
-            },
-            onLogout() {
-                this.$http.post('auth/logout')
-                    .then(() => {
-                        this.$store.dispatch('logout')
-                    })
             }
         },
         mounted() {
@@ -143,6 +137,14 @@
             profile() {
                 return this.$store.state.myInfo
             }
+        },
+        components: {
+            'el-menu': Menu,
+            'el-submenu': Submenu,
+            'el-menu-item': MenuItem,
+            'el-dropdown': Dropdown,
+            'el-dropdown-item': DropdownItem,
+            'el-dropdown-menu': DropdownMenu
         }
     }
 </script>
@@ -168,7 +170,7 @@
         }
 
         .nav-user-wrapper {
-            padding: 30px 10px;
+            padding: 12px 10px;
             position: relative;
             overflow: visible;
             z-index: 1;
@@ -208,21 +210,10 @@
                 margin-top: 0;
             }
         }
-        .nav-user-wrapper:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            pointer-events: none;
-            background-image: url(/img/user-background.png);
-        }
 
         .profile-card-photo {
-            width: 38px;
-            height: 38px;
-            /*border-radius: 8px;*/
+            width: 58px;
+            height: 58px;
             display: inline-block;
             img {
                 border-radius: 50%;
@@ -248,15 +239,6 @@
                 border-left: 3px solid #3ed9e5;
             }
         }
-        .el-submenu {
-            .el-menu {
-                ul {
-                    .is-active {
-                        border-left: 3px solid #3ed9e5;
-                    }
-                }
-            }
-        }
     }
 
     .el-menu-item-group {
@@ -280,7 +262,6 @@
             padding-top: 60px;
             transition: width 0.5s;
             .nav {
-                padding-top: 20px;
                 border-right: none;
                 position: relative;
             }

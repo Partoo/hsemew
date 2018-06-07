@@ -7,12 +7,17 @@
                 <!--BREADCRUMBS-->
                 <div class="breadcrumb-wrapper">
                     <h4 class="title">首页</h4>
-                    <el-breadcrumb separator="/" class="breadcrumb">
-                        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-                        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-                        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-                    </el-breadcrumb>
+                    <ul class="pull-right breadcrumb">
+                        <li>
+                            <a href="index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i>Home</a>
+                        </li>
+                        <li>
+                            UI Elements
+                        </li>
+                        <li>
+                            Elements
+                        </li>
+                    </ul>
                 </div>
                 <!--CONTENT-->
                 <div class="container">
@@ -82,6 +87,14 @@
                     top: 50%;
                     margin: -10px 0 0;
                     float: right;
+                    li {
+                        display: inline-block;
+                    }
+                }
+                .breadcrumb > li + li:before {
+                    padding: 0 5px;
+                    color: #ccc;
+                    content: "/\00a0";
                 }
                 h4 {
                     color: #888;

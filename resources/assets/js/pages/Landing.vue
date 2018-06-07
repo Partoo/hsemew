@@ -1,44 +1,35 @@
 <template>
     <div>
-        <header class="row sticky" id="sticky">
-            <div class="col-md-3 hidden-sm">
-                <a href="#" class="logo">
+        <header id="sticky">
+            <div class="row">
+                <div class="four columns">
+                    <a href="/" class="logo">
                     <span class="header-logo">
                 <img src="/img/logo.png" alt="">
             </span>
-                </a>
-                <!--<label for="drawer-checkbox" class="button drawer-toggle"></label>-->
-            </div>
-            <div class="col-md-5 col-md-offset-4 hidden-sm">
-                <div class="logo-title" v-scroll-spy-active v-scroll-spy-link>
-                    <a v-for="(item, index) in menus" href="#" class="button"
-                       :class="{active: index===section}">{{item}}</a>
+                    </a>
+                    <!--<label for="drawer-checkbox" class="button drawer-toggle"></label>-->
+                </div>
+                <div class="eight columns">
+                    <div class="menu" v-scroll-spy-active v-scroll-spy-link>
+                        <a v-for="(item, index) in menus" href="#" class="button"
+                           :class="{active: index===section}">{{item}}</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-10 col-sm-offset-1 hidden-lg hidden-md">
-                <div class="logo-title" v-scroll-spy-active v-scroll-spy-link>
-                    <a v-for="(item, index) in menus" href="#" class="button"
-                       :class="{active: index===section}">{{item}}</a>
-                </div>
-            </div>
+            <!--<div class="col-sm-10 col-sm-offset-1 hidden-lg hidden-md">-->
+            <!--<div class="logo-title" v-scroll-spy-active v-scroll-spy-link>-->
+            <!--<a v-for="(item, index) in menus" href="#" class="button"-->
+            <!--:class="{active: index===section}">{{item}}</a>-->
+            <!--</div>-->
+            <!--</div>-->
         </header>
-        <!--<input type="checkbox" id="drawer-checkbox">-->
-        <!--<nav class="drawer hidden-md hidden-lg" v-scroll-spy-active v-scroll-spy-link>-->
-        <!--<label for="drawer-checkbox" class="close"></label>-->
-        <!--&lt;!&ndash;<a v-for="(item, index) in menus" href="#" class="button hidden-sm"&ndash;&gt;-->
-        <!--&lt;!&ndash;:class="{active: index===section}">{{item}}</a>&ndash;&gt;-->
-        <!--<h4 v-for="(item, index) in menus"><a href="#" :class="{active: index===section}">{{item}}</a></h4>-->
-        <!--&lt;!&ndash;<h4><a href="#">Blog</a></h4>&ndash;&gt;-->
-        <!--&lt;!&ndash;<h4><a href="#">Contact</a></h4>&ndash;&gt;-->
-        <!--</nav>-->
         <div class="main" v-scroll-spy="{data: 'section', offset: 160, time: 300, steps: 30}">
-            <div class="row mb-30">
-                <carousel></carousel>
-            </div>
+            <carousel></carousel>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 section-title text-center mb-30">
-                        <h2>{{menus[1]}}</h2>
+                    <div class="section-title">
+                        <h4>{{menus[1]}}</h4>
                         <p><span>微脉事</span>是一个集成办公环境，除了更好地扩展了微信公众平台外，还可以深度定制并集成您所在行业的应用：</p>
                     </div>
                 </div>
@@ -70,30 +61,30 @@
 
 <style lang="scss">
     header {
-        padding-top: 12px;
-    }
-
-    .sticky {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: block;
         background: #fff;
         box-shadow: 5px -1px 17px 0px rgba(0, 0, 0, 0.24);
-        left: 0;
-        right: 0;
         z-index: 999;
+        padding: 12px;
     }
 
     .logo img {
         height: 50px;
     }
 
-    .logo-title {
+    .menu {
         float: right;
-        margin-top: 4px;
+        margin-top: 10px;
         .active {
             background-color: #2ABFC3 !important;
             color: #fff !important;
         }
         a {
-            font-size: 16px;
+            font-size: 1em;
         }
     }
 
@@ -101,7 +92,8 @@
         text-transform: uppercase;
         max-width: 550px;
         margin: 0 auto;
-        h2::before {
+        text-align: center;
+        h4::before {
             display: inline-block;
             margin: 0 20px 8px 0;
             height: 2px;
@@ -111,7 +103,7 @@
             width: 100px;
 
         }
-        h2::after {
+        h4::after {
             display: inline-block;
             margin: 0 0 8px 20px;
             height: 2px;

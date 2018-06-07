@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        Auth::loginUsingId(7);
+//        Auth::loginUsingId(1);
         $this->middleware('auth');
     }
 

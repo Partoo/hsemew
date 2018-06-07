@@ -1,6 +1,6 @@
 <template>
-    <div class="col-md-12 slider hidden-sm">
-        <slider animation="fade" height="550px" :control-btn=false :speed=800 :interval=5000>
+    <div class="slider">
+        <slider animation="fade" height="550px" :control-btn=false :speed=1600 :interval=8000>
             <slider-item>
                 <section class="slider-inner">
                     <a href="#" class="img-hover-enlarge">
@@ -72,21 +72,13 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     .slider {
         padding: 0;
     }
 
     .img-hover-enlarge:hover {
         opacity: 1 !important;
-    }
-
-    .img-hover-enlarge img {
-        transition: all 2s;
-    }
-
-    .img-hover-enlarge:hover img {
-        transform: scale(1.1);
     }
 
     .slider-inner img {
@@ -100,6 +92,11 @@
         bottom: 80px;
         font-size: 3vw;
         color: #fff;
+
+        p {
+            font-size: 1em;
+        }
+
     }
 
     .login-form {

@@ -1,15 +1,13 @@
 require('./bootstrap');
 window.Vue = require('vue');
-import ElementUI from 'element-ui';
 import VueSlimScroll from 'vue-slimscroll';
-import '../sass/element-vars.scss';
 import './plugins/axios';
 import VueRouter from 'vue-router';
 import routes from './routes.js';
 import store from './vuex/store.js';
 // import App from './App.vue';
 
-Vue.use(ElementUI);
+require('../iconfont/iconfont.css');
 Vue.use(VueSlimScroll);
 Vue.use(VueRouter);
 

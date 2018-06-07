@@ -1,0 +1,16 @@
+{
+  "name": "wesite",
+  "alias": "微网站管理",
+  "description": "用于为绑定的微信公众号提供微网站服务",
+  "built_in": true,
+  "price": 300,
+  "menu": [
+    {
+      "label": "微网站",
+      "icon": "iconfont icon-workbench_fill",
+      "path": "/home/wesite",
+      "order": 0,
+      "view": "pages/wesite/home.vue"
+    }
+  ]
+}

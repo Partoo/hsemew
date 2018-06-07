@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Passport\HasApiTokens;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
-    use  HasApiTokens, Notifiable;
+    use HasRolesAndAbilities, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -28,9 +28,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'logs' => 'array'
+    ];
 
     public function unit()
     {
         return $this->belongsTo(Unit::class);
+    }
+
+    public function plugins()
+    {
+        return $this->morphToMany('App\App', 'pluginnable');
     }
 }

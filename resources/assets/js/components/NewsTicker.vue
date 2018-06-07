@@ -1,6 +1,6 @@
 <template>
     <div class="news-ticker">
-        <span class="news-left"><i :class="icon_class"></i></span>
+        <span class="news-left"><i :class="icon_class" style="font-size: 2rem"></i></span>
         <div class="news-body">
             <ul id="news">
                 <li v-for="item in lists" class="slide" @mouseover="paused = true" @mouseleave="paused = false">

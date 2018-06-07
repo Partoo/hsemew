@@ -1,6 +1,6 @@
 <template>
     <div style="margin-top: 30px;">
-        <h4 v-show="show_title">登录或注册，只需微信扫一扫</h4>
+        <h5 v-show="show_title">登录或注册，只需微信扫一扫</h5>
         <iframe id="iframe" scrolling="no" width="260" height="300" frameBorder="0" allowTransparency="true"
                 :src="setSrc"></iframe>
     </div>
